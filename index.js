@@ -17,19 +17,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       })
       .then((data) => {
-        const productsContainer = document.querySelector(".container");
+        const productsContainer = document.querySelector(".row");
 
         data.forEach((product) => {
           const productCard = document.createElement("div");
-          productCard.classList.add("card", "my-3");
+          productCard.classList.add(
+            "card",
+            "col-4",
+            "border-0",
+            "bg-transparent",
+            "grow-2",
+            "mt-4"
+          );
           productCard.innerHTML = `
-                    <div class="card-body">
-                    <img src="${product.imageUrl}" class="card-img-top" alt="...">
-                      <h5 class="card-title">Nome: ${product.name}</h5>
-                      <p class="card-text">Descrizione: ${product.description}</p>
-                      <p class="card-text"><strong>Prezzo:</strong> ${product.price}€</p>
-                     
-                      <button id="${product._id}" class="btn btn-primary btn-edit">Modifica</button>
+            
+                    <div class="card-body p-0 border-0 bg-dark">
+                    <img src="${product.imageUrl}" class="card-img-top img-fluid rounded-3 mb-3" alt="...">
+                      <h5 class="card-title text-light">${product.name}</h5>
+                      <p class="card-text text-light"> ${product.description}</p>
+                      <p class="card-text text-light"><strong>Prezzo:</strong> ${product.price}€</p>                
                     </div>
                   `;
 
